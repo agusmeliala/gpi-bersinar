@@ -24,7 +24,7 @@
 <body>
  <img src="kop-surat.png" alt="Kop Surat GPI" />
   <h1>Selamat datang di Website GPI Jemaat Bersinar!</h1>
-  <p id="tanggalWaktu" style="font-size:16px; color:gray;"></p>
+  <p id="tanggalWaktu" style="font-size:16px; color:gray; margin-bottom: 30px;"></p>
   <div id="tanggal-jam"></div>
   <h2>Jadwal Ibadah</h2>
 <ul>
@@ -99,5 +99,28 @@
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade">
 </iframe>
+  <h2>Lokasi Gereja</h2>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15900.376340529897!2d98.67974970839846!3d3.7121105064577084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c7eabc313d%3A0x3e39402b4d2e59db!2sJl.%20Jaring%20Udang%206%2C%20Pekan%20Labuhan%2C%20Kec.%20Medan%20Labuhan%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020281!5e0!3m2!1sid!2sid!4v1719050345465"
+  width="100%"
+  height="300"
+  style="border:0; margin-top: 20px;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+<script>
+  function updateTanggalWaktu() {
+    const now = new Date();
+    const tanggal = now.toLocaleDateString('id-ID', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const waktu = now.toLocaleTimeString('id-ID');
+    document.getElementById('tanggalWaktu').innerText = `${tanggal}, ${waktu}`;
+  }
+  setInterval(updateTanggalWaktu, 1000);
+  updateTanggalWaktu();
+</script>
 </body>
 </html>
