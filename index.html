@@ -24,5 +24,23 @@
 <body>
   <img src="kop-surat.png" alt="Kop Surat GPI Bersinar">
   <h1>Selamat datang di Website GPI Jemaat Bersinar!</h1>
+  <h2 style="text-align:center">Galeri Kegiatan Gereja</h2>
+<div id="galeri" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:20px;">
+</div>
+
+<script>
+  const gambarGaleri = ["foto1.jpg", "foto2.jpg"];
+  const galeri = document.getElementById("galeri");
+
+  gambarGaleri.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Foto kegiatan";
+    img.style.width = "200px";
+    img.style.borderRadius = "8px";
+    img.style.boxShadow = "0 0 10px rgba(0,0,0,0.2)";
+    galeri.appendChild(img);
+  });
+</script>
 </body>
 </html>
