@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GPI Jemaat Bersinar</title>
   <style>
     body {
@@ -29,26 +30,30 @@
       margin-bottom: 30px;
     }
 
-    /* Slider Galeri */
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    /* Galeri Slider */
     .slider {
       overflow: hidden;
       margin: 30px auto;
-      max-width: 1000px;
-      border-radius: 10px;
+      max-width: 100%;
     }
 
     .slider-track {
       display: flex;
-      width: calc(310px * 13); /* 10 foto + 3 ulangi */
-      animation: scroll 30s linear infinite;
+      width: calc(110px * 20); /* 20 gambar (10 + 10 ulang) */
+      animation: scroll 5s linear infinite;
     }
 
     .slider-track img {
-      width: 300px;
+      width: 100px;
       height: auto;
       margin-right: 10px;
-      border-radius: 8px;
-      box-shadow: 2px 2px 8px #999;
+      border-radius: 6px;
+      box-shadow: 1px 1px 6px #888;
       object-fit: cover;
     }
 
@@ -57,12 +62,46 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-4030px); /* 13 gambar x 310px */
+        transform: translateX(-2200px); /* 20 x 110 */
       }
     }
 
     iframe {
       margin-top: 20px;
+    }
+
+    /* Kontak */
+    .kontak {
+      margin: 40px auto;
+    }
+
+    .wa-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .wa-btn:hover {
+      background-color: #1ebd5b;
+    }
+
+    .renungan {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 15px;
+      text-align: left;
+    }
+
+    @media screen and (max-width: 600px) {
+      .slider-track img {
+        width: 80px;
+      }
     }
   </style>
 </head>
@@ -82,7 +121,7 @@
     <li>Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</li>
   </ul>
 
-  <!-- Galeri Slider -->
+  <!-- Galeri -->
   <h2>Galeri Kegiatan</h2>
   <div class="slider">
     <div class="slider-track">
@@ -96,11 +135,30 @@
       <img src="foto8.jpeg" alt="Foto 8" />
       <img src="foto9.jpeg" alt="Foto 9" />
       <img src="foto10.jpeg" alt="Foto 10" />
-      <!-- Ulangi agar tampak seperti loop -->
+      <!-- Ulangi agar animasi looping halus -->
       <img src="foto1.jpeg" alt="Foto 1" />
       <img src="foto2.jpeg" alt="Foto 2" />
       <img src="foto3.jpeg" alt="Foto 3" />
+      <img src="foto4.jpeg" alt="Foto 4" />
+      <img src="foto5.jpeg" alt="Foto 5" />
+      <img src="foto6.jpeg" alt="Foto 6" />
+      <img src="foto7.jpeg" alt="Foto 7" />
+      <img src="foto8.jpeg" alt="Foto 8" />
+      <img src="foto9.jpeg" alt="Foto 9" />
+      <img src="foto10.jpeg" alt="Foto 10" />
     </div>
+  </div>
+
+  <!-- Renungan -->
+  <h2>Renungan Hari Ini</h2>
+  <div class="renungan">
+    <p><strong>Judul:</strong> Kasih yang Tidak Pernah Gagal</p>
+    <p>
+      “Sebab aku yakin, bahwa baik maut, maupun hidup, … tidak akan dapat memisahkan kita dari kasih Allah, yang ada dalam Kristus Yesus, Tuhan kita.” – Roma 8:38-39
+    </p>
+    <p>
+      Kasih Tuhan tidak tergantung pada situasi. Ia tetap mengasihi kita meski kita lemah dan gagal. Marilah kita hidup dalam kasih itu dan membagikannya kepada sesama hari ini.
+    </p>
   </div>
 
   <!-- Lokasi Gereja -->
@@ -115,7 +173,13 @@
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 
-  <!-- Script Waktu -->
+  <!-- Kontak -->
+  <h2>Kontak Kami</h2>
+  <div class="kontak">
+    <a class="wa-btn" href="https://wa.me/6281234567890" target="_blank">Hubungi via WhatsApp</a>
+  </div>
+
+  <!-- Script Tanggal & Waktu -->
   <script>
     function updateTanggalWaktu() {
       const now = new Date();
