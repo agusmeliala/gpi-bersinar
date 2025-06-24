@@ -11,7 +11,6 @@
       text-align: center;
     }
 
-    /* Kop surat */
     .kop-surat {
       width: 100%;
       max-width: 1200px;
@@ -24,26 +23,42 @@
       margin-top: 20px;
     }
 
-    .galeri {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .galeri img {
-      width: 300px;
-      height: auto;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 2px 2px 8px #999;
-    }
-
     #tanggalWaktu {
       font-size: 16px;
       color: gray;
       margin-bottom: 30px;
+    }
+
+    /* Slider Galeri */
+    .slider {
+      overflow: hidden;
+      margin: 30px auto;
+      max-width: 1000px;
+      border-radius: 10px;
+    }
+
+    .slider-track {
+      display: flex;
+      width: calc(310px * 13); /* 10 foto + 3 ulangi */
+      animation: scroll 30s linear infinite;
+    }
+
+    .slider-track img {
+      width: 300px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 8px #999;
+      object-fit: cover;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-4030px); /* 13 gambar x 310px */
+      }
     }
 
     iframe {
@@ -53,7 +68,7 @@
 </head>
 <body>
 
-  <!-- Gambar kop surat -->
+  <!-- Kop Surat -->
   <img class="kop-surat" src="kop-surat.png" alt="Kop Surat GPI" />
 
   <h1>Selamat datang di Website GPI Jemaat Bersinar!</h1>
@@ -67,14 +82,28 @@
     <li>Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</li>
   </ul>
 
-  <!-- Galeri -->
+  <!-- Galeri Slider -->
   <h2>Galeri Kegiatan</h2>
-  <div class="galeri">
-    <img src="foto1.jpeg" alt="Kegiatan 1" />
-    <img src="foto2.jpeg" alt="Kegiatan 2" />
+  <div class="slider">
+    <div class="slider-track">
+      <img src="foto1.jpeg" alt="Foto 1" />
+      <img src="foto2.jpeg" alt="Foto 2" />
+      <img src="foto3.jpeg" alt="Foto 3" />
+      <img src="foto4.jpeg" alt="Foto 4" />
+      <img src="foto5.jpeg" alt="Foto 5" />
+      <img src="foto6.jpeg" alt="Foto 6" />
+      <img src="foto7.jpeg" alt="Foto 7" />
+      <img src="foto8.jpeg" alt="Foto 8" />
+      <img src="foto9.jpeg" alt="Foto 9" />
+      <img src="foto10.jpeg" alt="Foto 10" />
+      <!-- Ulangi agar tampak seperti loop -->
+      <img src="foto1.jpeg" alt="Foto 1" />
+      <img src="foto2.jpeg" alt="Foto 2" />
+      <img src="foto3.jpeg" alt="Foto 3" />
+    </div>
   </div>
 
-  <!-- Peta Lokasi -->
+  <!-- Lokasi Gereja -->
   <h2>Lokasi Gereja</h2>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15900.376340529897!2d98.67974970839846!3d3.7121105064577084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c7eabc313d%3A0x3e39402b4d2e59db!2sJl.%20Jaring%20Udang%206%2C%20Pekan%20Labuhan%2C%20Kec.%20Medan%20Labuhan%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020281!5e0!3m2!1sid!2sid!4v1719050345465"
@@ -86,7 +115,7 @@
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>
 
-  <!-- Script Jam dan Tanggal -->
+  <!-- Script Waktu -->
   <script>
     function updateTanggalWaktu() {
       const now = new Date();
