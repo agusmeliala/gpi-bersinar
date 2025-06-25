@@ -73,10 +73,6 @@
   <h2>Galeri Kegiatan</h2>
   <div class="slider">
     <div class="slide-track">
-      <!-- 2x30 agar efek tidak berhenti -->
-      <!-- LOOP 2x -->
-      <!-- 1--30 -->
-      <!-- 1st loop -->
       <script>
         for (let i = 1; i <= 30; i++) {
           document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide">`);
@@ -110,45 +106,43 @@
     setInterval(updateTanggalWaktu, 1000);
     updateTanggalWaktu();
 
-    // RENUNGAN HARIAN
     const renungan = [
       {
         judul: "Kasih yang Tidak Pernah Gagal",
-        ayat: "Sebab aku yakin... Roma 8:38-39",
-        isi: "Kasih Tuhan tidak tergantung pada situasi..."
+        ayat: "Roma 8:38-39",
+        isi: "Kasih Tuhan tidak tergantung pada situasi. Ia tetap mengasihi kita meski kita lemah dan gagal. Marilah kita hidup dalam kasih itu dan membagikannya kepada sesama hari ini."
       },
       {
         judul: "Pengharapan di Tengah Tantangan",
         ayat: "Yeremia 29:11",
-        isi: "Tuhan memberikan masa depan yang penuh harapan..."
+        isi: "Tuhan memberikan masa depan yang penuh harapan. Jangan takut, karena rancangan-Nya selalu baik."
       },
       {
         judul: "Hidup dalam Anugerah",
         ayat: "Efesus 2:8",
-        isi: "Keselamatan adalah anugerah Tuhan, bukan hasil usaha kita."
+        isi: "Keselamatan adalah anugerah Tuhan, bukan hasil usaha kita. Syukuri dan hidupi dengan iman."
       },
       {
         judul: "Jangan Takut",
         ayat: "Yesaya 41:10",
-        isi: "Tuhan menyertai dan menguatkan kita dalam segala hal."
+        isi: "Tuhan menyertai dan menguatkan kita. Dalam kesulitan sekalipun, Dia tidak pernah meninggalkan."
       },
       {
         judul: "Bersukacita Senantiasa",
         ayat: "Filipi 4:4",
-        isi: "Sukacita bukan tergantung keadaan, tapi karena Tuhan."
+        isi: "Sukacita datang dari Tuhan, bukan dari keadaan. Mari bersukacita selalu dalam Dia."
       },
       {
         judul: "Iman yang Bertumbuh",
         ayat: "Ibrani 11:1",
-        isi: "Iman adalah dasar dari segala sesuatu yang kita harapkan."
+        isi: "Iman adalah dasar dari segala sesuatu yang kita harapkan. Teruslah bertumbuh dalam iman kepada Tuhan."
       },
       {
         judul: "Mengandalkan Tuhan",
         ayat: "Amsal 3:5-6",
-        isi: "Percayalah kepada Tuhan dengan segenap hati..."
+        isi: "Percayalah kepada Tuhan dengan segenap hati dan jangan bersandar pada pengertian sendiri. Dia akan menuntun jalanmu."
       }
     ];
-
     const hari = new Date().getDay();
     const isi = renungan[hari === 0 ? 6 : hari - 1];
     document.getElementById("renungan").innerHTML = `
