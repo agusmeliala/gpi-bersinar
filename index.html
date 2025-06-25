@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>GPI Jemaat Bersinar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPI Bersinar</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,122 +20,83 @@
     }
     .slider {
       overflow: hidden;
-      margin: 40px 0;
+      margin: 20px auto;
+      width: 100%;
     }
-    .slider-track {
+    .slide-track {
       display: flex;
-      width: calc(100px * 30 * 2); /* 30 foto, digandakan agar seamless */
+      width: calc(100px * 60);
       animation: scroll 30s linear infinite;
     }
-    .slider-track img {
+    .slide {
       width: 100px;
-      height: auto;
-      margin: 0 5px;
-      border-radius: 6px;
-      box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+      height: 100px;
+      flex-shrink: 0;
+      margin-right: 10px;
     }
     @keyframes scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .renungan {
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
       text-align: left;
-      padding: 0 10px;
     }
     .kontak {
-      margin-top: 30px;
+      margin-top: 40px;
     }
-    .kontak a {
-      background-color: green;
+    .whatsapp-button {
+      display: inline-block;
+      background-color: #25D366;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
     }
-    iframe {
-      width: 100%;
-      border: 0;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
-  <img src="kop-surat.png" alt="Kop Surat GPI" style="width:100%; max-width: 1200px; margin: 10px auto; display:block;">
+
+  <img src="kop-surat.png" alt="Kop Surat GPI" style="max-width: 100%; margin: 20px auto;">
 
   <h1>Selamat datang di Website GPI Jemaat Bersinar!</h1>
-  <p id="tanggalWaktu" style="color:gray;"></p>
+  <p id="tanggalWaktu" style="font-size:16px; color:gray; margin-bottom: 30px;"></p>
 
   <h2>Jadwal Ibadah</h2>
-  <ul style="list-style: none; padding: 0;">
-    <li>Ibadah Umum: Minggu, pukul 10.30 WIB</li>
-    <li>Sekolah Minggu: Minggu, pukul 08.30 WIB</li>
-    <li>Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</li>
-  </ul>
+  <p>Ibadah Umum: Minggu, pukul 10.30 WIB<br>
+  Sekolah Minggu: Minggu, pukul 08.30 WIB<br>
+  Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</p>
 
   <h2>Galeri Kegiatan</h2>
   <div class="slider">
-    <div class="slider-track">
-      <!-- 30 foto -->
-      <!-- Digandakan agar tidak putus saat looping -->
-      <!-- Folder foto: img/foto1.jpeg sampai img/foto30.jpeg -->
-      <!-- Digandakan untuk animasi tanpa jeda -->
-      <!-- Total: 60 img -->
-      <!-- Foto 1 - 30 -->
-      <!-- Foto 1 - 30 lagi -->
-      <!-- Bisa disingkat dengan JavaScript juga, tapi ini HTML statis full -->
-      <!-- Akan dituliskan manual untuk kejelasan -->
-      
-      <!-- Foto 1-30 -->
-      <img src="img/foto1.jpeg"><img src="img/foto2.jpeg"><img src="img/foto3.jpeg">
-      <img src="img/foto4.jpeg"><img src="img/foto5.jpeg"><img src="img/foto6.jpeg">
-      <img src="img/foto7.jpeg"><img src="img/foto8.jpeg"><img src="img/foto9.jpeg">
-      <img src="img/foto10.jpeg"><img src="img/foto11.jpeg"><img src="img/foto12.jpeg">
-      <img src="img/foto13.jpeg"><img src="img/foto14.jpeg"><img src="img/foto15.jpeg">
-      <img src="img/foto16.jpeg"><img src="img/foto17.jpeg"><img src="img/foto18.jpeg">
-      <img src="img/foto19.jpeg"><img src="img/foto20.jpeg"><img src="img/foto21.jpeg">
-      <img src="img/foto22.jpeg"><img src="img/foto23.jpeg"><img src="img/foto24.jpeg">
-      <img src="img/foto25.jpeg"><img src="img/foto26.jpeg"><img src="img/foto27.jpeg">
-      <img src="img/foto28.jpeg"><img src="img/foto29.jpeg"><img src="img/foto30.jpeg">
-
-      <!-- Ulangi Foto 1-30 -->
-      <img src="img/foto1.jpeg"><img src="img/foto2.jpeg"><img src="img/foto3.jpeg">
-      <img src="img/foto4.jpeg"><img src="img/foto5.jpeg"><img src="img/foto6.jpeg">
-      <img src="img/foto7.jpeg"><img src="img/foto8.jpeg"><img src="img/foto9.jpeg">
-      <img src="img/foto10.jpeg"><img src="img/foto11.jpeg"><img src="img/foto12.jpeg">
-      <img src="img/foto13.jpeg"><img src="img/foto14.jpeg"><img src="img/foto15.jpeg">
-      <img src="img/foto16.jpeg"><img src="img/foto17.jpeg"><img src="img/foto18.jpeg">
-      <img src="img/foto19.jpeg"><img src="img/foto20.jpeg"><img src="img/foto21.jpeg">
-      <img src="img/foto22.jpeg"><img src="img/foto23.jpeg"><img src="img/foto24.jpeg">
-      <img src="img/foto25.jpeg"><img src="img/foto26.jpeg"><img src="img/foto27.jpeg">
-      <img src="img/foto28.jpeg"><img src="img/foto29.jpeg"><img src="img/foto30.jpeg">
+    <div class="slide-track">
+      <!-- 2x30 agar efek tidak berhenti -->
+      <!-- LOOP 2x -->
+      <!-- 1--30 -->
+      <!-- 1st loop -->
+      <script>
+        for (let i = 1; i <= 30; i++) {
+          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide">`);
+        }
+        for (let i = 1; i <= 30; i++) {
+          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide">`);
+        }
+      </script>
     </div>
   </div>
 
   <h2>Renungan Hari Ini</h2>
-  <div class="renungan">
-    <strong>Judul:</strong> Kasih yang Tidak Pernah Gagal<br><br>
-    "Sebab aku yakin, bahwa baik maut, maupun hidup, ... tidak akan dapat memisahkan kita dari kasih Allah, yang ada dalam Kristus Yesus, Tuhan kita." – Roma 8:38-39
-    <p>
-      Kasih Tuhan tidak tergantung pada situasi. Ia tetap mengasihi kita meski kita lemah dan gagal. Marilah kita hidup dalam kasih itu dan membagikannya kepada sesama hari ini.
-    </p>
-  </div>
+  <div class="renungan" id="renungan"></div>
 
   <div class="kontak">
     <h2>Kontak</h2>
-    <a href="https://wa.me/6281376303141" target="_blank">Hubungi via WhatsApp</a>
+    <a class="whatsapp-button" href="https://wa.me/6281376303141" target="_blank">
+      Hubungi via WhatsApp
+    </a>
   </div>
-
-  <h2>Lokasi Gereja</h2>
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15900.376340529897!2d98.67974970839846!3d3.7121105064577084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c7eabc313d%3A0x3e39402b4d2e59db!2sJl.%20Jaring%20Udang%206%2C%20Pekan%20Labuhan%2C%20Kec.%20Medan%20Labuhan%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020281!5e0!3m2!1sid!2sid!4v1719050345465"
-    height="300"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
 
   <script>
     function updateTanggalWaktu() {
@@ -143,10 +105,58 @@
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
       });
       const waktu = now.toLocaleTimeString('id-ID');
-      document.getElementById('tanggalWaktu').innerText = tanggal + ", " + waktu;
+      document.getElementById('tanggalWaktu').innerText = `${tanggal}, ${waktu}`;
     }
     setInterval(updateTanggalWaktu, 1000);
     updateTanggalWaktu();
+
+    // RENUNGAN HARIAN
+    const renungan = [
+      {
+        judul: "Kasih yang Tidak Pernah Gagal",
+        ayat: "Sebab aku yakin... Roma 8:38-39",
+        isi: "Kasih Tuhan tidak tergantung pada situasi..."
+      },
+      {
+        judul: "Pengharapan di Tengah Tantangan",
+        ayat: "Yeremia 29:11",
+        isi: "Tuhan memberikan masa depan yang penuh harapan..."
+      },
+      {
+        judul: "Hidup dalam Anugerah",
+        ayat: "Efesus 2:8",
+        isi: "Keselamatan adalah anugerah Tuhan, bukan hasil usaha kita."
+      },
+      {
+        judul: "Jangan Takut",
+        ayat: "Yesaya 41:10",
+        isi: "Tuhan menyertai dan menguatkan kita dalam segala hal."
+      },
+      {
+        judul: "Bersukacita Senantiasa",
+        ayat: "Filipi 4:4",
+        isi: "Sukacita bukan tergantung keadaan, tapi karena Tuhan."
+      },
+      {
+        judul: "Iman yang Bertumbuh",
+        ayat: "Ibrani 11:1",
+        isi: "Iman adalah dasar dari segala sesuatu yang kita harapkan."
+      },
+      {
+        judul: "Mengandalkan Tuhan",
+        ayat: "Amsal 3:5-6",
+        isi: "Percayalah kepada Tuhan dengan segenap hati..."
+      }
+    ];
+
+    const hari = new Date().getDay();
+    const isi = renungan[hari === 0 ? 6 : hari - 1];
+    document.getElementById("renungan").innerHTML = `
+      <strong>Judul:</strong> ${isi.judul}<br>
+      <em>${isi.ayat}</em><br><br>
+      ${isi.isi}
+    `;
   </script>
+
 </body>
 </html>
