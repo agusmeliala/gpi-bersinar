@@ -4,151 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GPI Bersinar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    h1 {
-      margin-top: 20px;
-    }
-    .slider {
-      overflow: hidden;
-      margin: 20px auto;
-      width: 100%;
-    }
-    .slide-track {
-      display: flex;
-      width: calc(100px * 60);
-      animation: scroll 30s linear infinite;
-    }
-    .slide {
-      width: 100px;
-      height: 100px;
-      flex-shrink: 0;
-      margin-right: 10px;
-    }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .renungan {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: left;
-    }
-    .kontak {
-      margin-top: 40px;
-    }
-    .whatsapp-button {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
   </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="text-center p-4">
+    <img src="kop-surat.png" alt="Kop Surat GPI" class="mx-auto max-w-full h-auto mb-4">
+    <h1 class="text-2xl md:text-4xl font-bold mb-2">GPI Jemaat Bersinar</h1>
+    <p id="tanggalWaktu" class="text-sm text-gray-500"></p>
+  </header>
 
-  <img src="kop-surat.png" alt="Kop Surat GPI" style="max-width: 100%; margin: 20px auto;">
+  <!-- Jadwal Ibadah -->
+  <section class="max-w-xl mx-auto p-4">
+    <h2 class="text-xl font-semibold mb-2">Jadwal Ibadah</h2>
+    <ul class="list-disc list-inside text-left">
+      <li>Ibadah Umum: Minggu, pukul 10.30 WIB</li>
+      <li>Sekolah Minggu: Minggu, pukul 08.30 WIB</li>
+      <li>Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</li>
+    </ul>
+  </section>
 
-  <h1>Selamat datang di Website GPI Jemaat Bersinar!</h1>
-  <p id="tanggalWaktu" style="font-size:16px; color:gray; margin-bottom: 30px;"></p>
-
-  <h2>Jadwal Ibadah</h2>
-  <p>Ibadah Umum: Minggu, pukul 10.30 WIB<br>
-  Sekolah Minggu: Minggu, pukul 08.30 WIB<br>
-  Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</p>
-
-  <h2>Galeri Kegiatan</h2>
-  <div class="slider">
-    <div class="slide-track">
-      <script>
-        for (let i = 1; i <= 30; i++) {
-          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide">`);
-        }
-        for (let i = 1; i <= 30; i++) {
-          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide">`);
-        }
-      </script>
+  <!-- Galeri Slider -->
+  <section class="mt-8 overflow-hidden">
+    <h2 class="text-xl font-semibold mb-4">Galeri Kegiatan</h2>
+    <div class="whitespace-nowrap flex animate-[scroll_30s_linear_infinite]">
+      <!-- duplikat dua kali agar bisa loop -->
+      <template id="foto-template">
+        <img src="" alt="Foto" class="h-24 w-auto mx-1 rounded shadow">
+      </template>
     </div>
-  </div>
+  </section>
 
-  <h2>Renungan Hari Ini</h2>
-  <div class="renungan" id="renungan"></div>
+  <!-- Renungan Harian -->
+  <section class="max-w-xl mx-auto mt-10 p-4">
+    <h2 class="text-xl font-semibold mb-2">Renungan Hari Ini</h2>
+    <div id="renungan" class="text-left"></div>
+  </section>
 
-  <div class="kontak">
-    <h2>Kontak</h2>
-    <a class="whatsapp-button" href="https://wa.me/6281376303141" target="_blank">
-      Hubungi via WhatsApp
-    </a>
-  </div>
+  <!-- Kontak -->
+  <section class="text-center mt-10">
+    <h2 class="text-xl font-semibold mb-2">Kontak</h2>
+    <a href="https://wa.me/6281376303141" target="_blank" class="inline-block bg-green-500 text-white px-6 py-2 rounded shadow">Hubungi via WhatsApp</a>
+  </section>
 
+  <!-- Peta Lokasi -->
+  <section class="mt-10 p-4">
+    <h2 class="text-xl font-semibold mb-4">Lokasi Gereja</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15900.376340529897!2d98.67974970839846!3d3.7121105064577084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c7eabc313d%3A0x3e39402b4d2e59db!2sJl.%20Jaring%20Udang%206%2C%20Pekan%20Labuhan%2C%20Kec.%20Medan%20Labuhan%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020281!5e0!3m2!1sid!2sid!4v1719050345465"
+      class="w-full h-64 border-0"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center mt-10 text-sm text-gray-500 p-4">
+    &copy; 2025 GPI Jemaat Bersinar. Semua Hak Dilindungi.
+  </footer>
+
+  <!-- Script -->
   <script>
+    // Tanggal & Waktu
     function updateTanggalWaktu() {
       const now = new Date();
-      const tanggal = now.toLocaleDateString('id-ID', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-      });
+      const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
       const waktu = now.toLocaleTimeString('id-ID');
       document.getElementById('tanggalWaktu').innerText = `${tanggal}, ${waktu}`;
     }
     setInterval(updateTanggalWaktu, 1000);
     updateTanggalWaktu();
 
+    // Galeri Slider 30 foto
+    const track = document.querySelector('.slide-track') || document.querySelector('.flex');
+    const template = document.getElementById('foto-template');
+    for (let i = 1; i <= 60; i++) {
+      const index = ((i - 1) % 30) + 1;
+      const clone = template.content.cloneNode(true);
+      const img = clone.querySelector('img');
+      img.src = `img/foto${index}.jpeg`;
+      img.alt = `Foto ${index}`;
+      track.appendChild(clone);
+    }
+
+    // Renungan Harian
     const renungan = [
-      {
-        judul: "Kasih yang Tidak Pernah Gagal",
-        ayat: "Roma 8:38-39",
-        isi: "Kasih Tuhan tidak tergantung pada situasi. Ia tetap mengasihi kita meski kita lemah dan gagal. Marilah kita hidup dalam kasih itu dan membagikannya kepada sesama hari ini."
-      },
-      {
-        judul: "Pengharapan di Tengah Tantangan",
-        ayat: "Yeremia 29:11",
-        isi: "Tuhan memberikan masa depan yang penuh harapan. Jangan takut, karena rancangan-Nya selalu baik."
-      },
-      {
-        judul: "Hidup dalam Anugerah",
-        ayat: "Efesus 2:8",
-        isi: "Keselamatan adalah anugerah Tuhan, bukan hasil usaha kita. Syukuri dan hidupi dengan iman."
-      },
-      {
-        judul: "Jangan Takut",
-        ayat: "Yesaya 41:10",
-        isi: "Tuhan menyertai dan menguatkan kita. Dalam kesulitan sekalipun, Dia tidak pernah meninggalkan."
-      },
-      {
-        judul: "Bersukacita Senantiasa",
-        ayat: "Filipi 4:4",
-        isi: "Sukacita datang dari Tuhan, bukan dari keadaan. Mari bersukacita selalu dalam Dia."
-      },
-      {
-        judul: "Iman yang Bertumbuh",
-        ayat: "Ibrani 11:1",
-        isi: "Iman adalah dasar dari segala sesuatu yang kita harapkan. Teruslah bertumbuh dalam iman kepada Tuhan."
-      },
-      {
-        judul: "Mengandalkan Tuhan",
-        ayat: "Amsal 3:5-6",
-        isi: "Percayalah kepada Tuhan dengan segenap hati dan jangan bersandar pada pengertian sendiri. Dia akan menuntun jalanmu."
-      }
+      {judul: "Kasih yang Tidak Pernah Gagal", ayat: "Roma 8:38-39", isi: "Kasih Tuhan tidak tergantung pada situasi..."},
+      {judul: "Pengharapan di Tengah Tantangan", ayat: "Yeremia 29:11", isi: "Tuhan memberikan masa depan yang penuh harapan..."},
+      {judul: "Hidup dalam Anugerah", ayat: "Efesus 2:8", isi: "Keselamatan adalah anugerah Tuhan, bukan hasil usaha kita."},
+      {judul: "Jangan Takut", ayat: "Yesaya 41:10", isi: "Tuhan menyertai dan menguatkan kita dalam segala hal."},
+      {judul: "Bersukacita Senantiasa", ayat: "Filipi 4:4", isi: "Sukacita bukan tergantung keadaan, tapi karena Tuhan."},
+      {judul: "Iman yang Bertumbuh", ayat: "Ibrani 11:1", isi: "Iman adalah dasar dari segala sesuatu yang kita harapkan."},
+      {judul: "Mengandalkan Tuhan", ayat: "Amsal 3:5-6", isi: "Percayalah kepada Tuhan dengan segenap hati..."},
     ];
     const hari = new Date().getDay();
-    const isi = renungan[hari === 0 ? 6 : hari - 1];
-    document.getElementById("renungan").innerHTML = `
-      <strong>Judul:</strong> ${isi.judul}<br>
-      <em>${isi.ayat}</em><br><br>
-      ${isi.isi}
+    const isiRenungan = renungan[hari === 0 ? 6 : hari - 1];
+    document.getElementById('renungan').innerHTML = `
+      <strong>${isiRenungan.judul}</strong><br>
+      <em>${isiRenungan.ayat}</em><br><br>
+      ${isiRenungan.isi}
     `;
   </script>
 
