@@ -10,74 +10,81 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-     @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
-  }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll {
+      animation: scroll 30s linear infinite;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
-  <header class="text-center p-4">
-    <img src="kop-surat.png" alt="Kop Surat GPI" class="mx-auto max-w-full h-auto mb-4">
-    <h1 class="text-2xl md:text-4xl font-bold">GPI Jemaat Bersinar</h1>
-    <p id="tanggalWaktu" class="text-sm text-gray-500"></p>
-  </header>
+  <div class="container mx-auto px-4">
+    <header class="text-center py-6">
+      <img src="kop-surat.png" alt="Kop Surat GPI" class="mx-auto max-w-full h-auto mb-4">
+      <h1 class="text-3xl md:text-5xl font-bold">GPI Jemaat Bersinar</h1>
+      <p id="tanggalWaktu" class="text-sm text-gray-500 mt-2"></p>
+    </header>
 
-  <section class="text-center mb-8">
-    <h2 class="text-xl font-semibold mb-2">Jadwal Ibadah</h2>
-    <p>Ibadah Umum: Minggu, pukul 10.30 WIB<br>
-    Sekolah Minggu: Minggu, pukul 08.30 WIB<br>
-    Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</p>
-  </section>
+    <section class="text-center mb-10">
+      <h2 class="text-2xl font-semibold mb-4">Jadwal Ibadah</h2>
+      <p class="leading-relaxed md:text-lg">Ibadah Umum: Minggu, pukul 10.30 WIB<br>
+      Sekolah Minggu: Minggu, pukul 08.30 WIB<br>
+      Ibadah Rumah Tangga: Selasa, pukul 19.00 WIB</p>
+    </section>
 
-  <section class="overflow-hidden mb-12">
-    <h2 class="text-xl font-semibold text-center mb-4">Galeri Kegiatan</h2>
-    <div class="flex animate-scroll space-x-2 w-[6000px]">
-      <script>
-        for (let i = 1; i <= 30; i++) {
-          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="w-24 h-24 object-cover">`);
-        }
-        for (let i = 1; i <= 30; i++) {
-          document.write(`<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="w-24 h-24 object-cover">`);
-        }
-      </script>
-    </div>
-  </section>
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-center mb-6">Galeri Kegiatan</h2>
+      <!-- scroll on mobile, grid on desktop -->
+      <div class="overflow-x-auto md:overflow-visible animate-scroll md:animate-none whitespace-nowrap md:flex md:flex-wrap md:justify-center gap-4">
+        <script>
+          // duplicate for seamless scroll
+          for (let loop = 0; loop < 2; loop++) {
+            for (let i = 1; i <= 30; i++) {
+              document.write(
+                `<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="inline-block w-24 h-24 object-cover md:w-32 md:h-32 rounded shadow" />`
+              );
+            }
+          }
+        </script>
+      </div>
+    </section>
 
-  <section class="max-w-xl mx-auto px-4">
-    <h2 class="text-xl font-semibold mb-2">Renungan Hari Ini</h2>
-    <div id="renungan" class="bg-gray-100 p-4 rounded shadow"></div>
-  </section>
+    <section class="max-w-4xl mx-auto mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Renungan Hari Ini</h2>
+      <div id="renungan" class="bg-gray-100 p-6 rounded shadow"></div>
+    </section>
 
-  <section class="max-w-xl mx-auto px-4 mt-12">
-    <h2 class="text-xl font-semibold mb-4">Kontak Kami</h2>
-    <form id="emailForm" class="space-y-4">
-      <input type="text" name="name" required placeholder="Nama" class="w-full p-2 border rounded">
-      <input type="email" name="email" required placeholder="Email" class="w-full p-2 border rounded">
-      <textarea name="message" rows="4" required placeholder="Pesan" class="w-full p-2 border rounded"></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim via Gmail</button>
-    </form>
+    <section class="max-w-2xl mx-auto mb-16">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Kontak Kami</h2>
+      <form action="https://formsubmit.co/aguschandra366@gmail.com" method="POST" class="space-y-4">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://agusmeliala.github.io/gpi-bersinar/terimakasih.html">
 
-    <div class="mt-4 text-center">
-      <a class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" href="https://wa.me/6281376303141?text=Shalom%2C%20saya%20ingin%20menghubungi%20GPI%20Bersinar." target="_blank">Kirim via WhatsApp</a>
-    </div>
-  </section>
+        <input type="text" name="name" required placeholder="Nama" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <input type="email" name="email" required placeholder="Email" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <textarea name="message" rows="4" required placeholder="Pesan" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition-colors">Kirim Email</button>
+      </form>
+      <div class="mt-6 text-center">
+        <a class="inline-block bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors" href="https://wa.me/6281376303141?text=Shalom%2C%20saya%20ingin%20menghubungi%20GPI%20Bersinar." target="_blank">Hubungi via WhatsApp</a>
+      </div>
+    </section>
+  </div>
 
   <script>
+    // Tanggal & Waktu
     function updateTanggalWaktu() {
       const now = new Date();
-      const tanggal = now.toLocaleDateString('id-ID', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-      });
+      const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
       const waktu = now.toLocaleTimeString('id-ID');
       document.getElementById('tanggalWaktu').innerText = `${tanggal}, ${waktu}`;
     }
     setInterval(updateTanggalWaktu, 1000);
     updateTanggalWaktu();
 
+    // Renungan Harian
     const renungan = [
       {judul: "Kasih yang Tidak Pernah Gagal", ayat: "Roma 8:38-39", isi: "Kasih Tuhan tidak tergantung pada situasi..."},
       {judul: "Pengharapan di Tengah Tantangan", ayat: "Yeremia 29:11", isi: "Tuhan memberikan masa depan yang penuh harapan..."},
@@ -89,16 +96,11 @@
     ];
     const hari = new Date().getDay();
     const isiRenungan = renungan[hari === 0 ? 6 : hari - 1];
-    document.getElementById("renungan").innerHTML = `
-      <strong>${isiRenungan.judul}</strong><br>
-      <em>${isiRenungan.ayat}</em><br><br>
-      ${isiRenungan.isi}
+    document.getElementById('renungan').innerHTML = `
+      <h3 class="font-bold text-lg mb-1">${isiRenungan.judul}</h3>
+      <p class="italic text-sm text-gray-600 mb-2">• ${isiRenungan.ayat}</p>
+      <p>${isiRenungan.isi}</p>
     `;
-
-    document.getElementById("emailForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Pesan berhasil dikirim melalui Gmail API (fitur ini butuh backend)");
-    });
   </script>
 </body>
 </html>
