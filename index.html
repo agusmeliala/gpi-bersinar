@@ -14,8 +14,24 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    .slide-track {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .slide {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      margin-right: 16px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+    .overflow-slide {
+      overflow: hidden;
+    }
     .animate-scroll {
-      animation: scroll 30s linear infinite;
+      animation: scroll 60s linear infinite;
     }
   </style>
 </head>
@@ -36,18 +52,19 @@
 
     <section class="mb-12">
       <h2 class="text-2xl font-semibold text-center mb-6">Galeri Kegiatan</h2>
-      <!-- scroll on mobile, grid on desktop -->
-      <div class="overflow-x-auto md:overflow-visible animate-scroll md:animate-none whitespace-nowrap md:flex md:flex-wrap md:justify-center gap-4">
-        <script>
-          // duplicate for seamless scroll
-          for (let loop = 0; loop < 2; loop++) {
-            for (let i = 1; i <= 30; i++) {
-              document.write(
-                `<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="inline-block w-24 h-24 object-cover md:w-32 md:h-32 rounded shadow" />`
-              );
+      <div class="overflow-slide">
+        <div class="slide-track animate-scroll">
+          <script>
+            // duplikat list untuk scroll kontinu
+            for (let loop = 0; loop < 2; loop++) {
+              for (let i = 1; i <= 30; i++) {
+                document.write(
+                  `<img src="img/foto${i}.jpeg" alt="Foto ${i}" class="slide" />`
+                );
+              }
             }
-          }
-        </script>
+          </script>
+        </div>
       </div>
     </section>
 
