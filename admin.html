@@ -4,63 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - GPI Bersinar</title>
-  <link rel="icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
   <div class="max-w-2xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-4 text-center">Admin Dashboard</h1>
-    <!-- Password Protection -->
-    <script>
-      const pwd = prompt('Masukkan password admin:');
-      if (pwd !== 'admin123') {
-        alert('Password salah.');
-        window.location.href = 'index.html';
-      }
-    </script>
+    <h1 class="text-3xl font-bold mb-6 text-center">Admin Dashboard</h1>
 
     <!-- Edit Renungan -->
     <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-2">Edit Renungan Harian</h2>
-      <form id="form-renungan" class="space-y-4">
-        <textarea id="input-renungan" rows="8"
-          class="w-full p-2 border rounded"
-          placeholder="Masukkan array renungan JSON"></textarea>
-        <button type="button" id="save-renungan"
-          class="bg-blue-600 text-white px-4 py-2 rounded">Simpan Renungan</button>
-      </form>
+      <h2 class="text-xl font-semibold mb-2">Edit Renungan Harian</h2>
+      <textarea id="input-renungan" rows="6" class="w-full p-2 border rounded" placeholder="Masukkan array renungan JSON"></textarea>
+      <button id="save-renungan" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Renungan</button>
     </section>
 
-    <!-- Upload Galeri Baru -->
+    <!-- Upload Foto -->
     <section>
-      <h2 class="text-2xl font-semibold mb-2">Upload Galeri Foto</h2>
-      <form id="form-galeri" class="space-y-4">
-        <input type="file" id="input-foto" accept="image/*" multiple class="w-full" />
-        <button type="button" id="save-galeri"
-          class="bg-green-600 text-white px-4 py-2 rounded">Upload Foto</button>
-      </form>
+      <h2 class="text-xl font-semibold mb-2">Upload Galeri Foto</h2>
+      <button id="btn-upload" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Upload Foto ke Cloudinary</button>
     </section>
   </div>
 
   <script>
+    // Cloudinary Upload Widget
+    const widget = cloudinary.createUploadWidget({
+      cloudName: 'YOUR_CLOUD_NAME',     // ganti dengan cloud name kamu
+      uploadPreset: 'YOUR_UNSIGNED_PRESET', // ganti dengan unsigned preset yang sudah dibuat
+      multiple: true,
+      folder: 'gpi-bersinar',
+      sources: ['local', 'url', 'camera'],
+    }, (error, result) => {
+      if (!error && result && result.event === 'success') {
+        console.log('Upload berhasil:', result.info);
+        alert(`Foto '${result.info.original_filename}' berhasil diunggah!`);
+      }
+    });
+
+    document.getElementById('btn-upload').addEventListener('click', () => {
+      widget.open();
+    }, false);
+
     // Simpan renungan ke localStorage
     document.getElementById('save-renungan').onclick = () => {
       const data = document.getElementById('input-renungan').value;
       try {
         JSON.parse(data);
         localStorage.setItem('renunganData', data);
-        alert('Renungan tersimpan (localStorage).');
-      } catch(e) {
+        alert('Renungan berhasil disimpan.');
+      } catch {
         alert('Format JSON tidak valid.');
-      }
-    };
-    // Placeholder upload galeri
-    document.getElementById('save-galeri').onclick = () => {
-      const files = document.getElementById('input-foto').files;
-      if (files.length) {
-        alert(`Foto ${files.length} disiapkan (upload butuh backend).`);
-      } else {
-        alert('Pilih foto terlebih dahulu.');
       }
     };
   </script>
